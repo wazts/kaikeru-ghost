@@ -1,0 +1,20 @@
+<div class="row list-item">
+    <article class="{{post_class}}">
+        <header class="post-header">
+            <h2 class="post-title">
+                <a href="{{url}}">{{{title}}}</a>
+            </h2>
+            <div class="post-meta text-muted">
+                <time datatime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+            </div>
+            {{#if image}}
+            <div class="post-image">
+                <a href="{{url}}"><img src="{{image}}" class="img-responsive"/></a>
+            </div>
+            {{/if}}
+        </header>
+        <section class="post-excerpt">
+            <p>{{excerpt}}&hellip; <a href="{{url}}">more</a></p>
+        </section>
+    </article>
+</div>

@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import "./variables";
 @import "./mixins";
-@import url('https://fonts.googleapis.com/css?family=Catamaran:200,400,600');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:200,300,600');
 
 
 // -----------------------------------------------------------------------------
@@ -16,7 +16,28 @@ html{
 body{
     font-size: 1.1rem;
     font-family: 'Catamaran', sans-serif;
+    font-weight: 300;
     color: $color-text;
+}
+
+h1 {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 600;
+}
+
+.container-lg {
+    @extend .container;
+}
+
+.container-sm {
+    @extend .container;
+    @media(min-width: $container-lg) {
+        max-width: $container-sm;
+    }
+
+    @media(min-width: $container-md) {
+        max-width: $container-sm;
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -29,22 +50,24 @@ body{
     border-radius: 0;
     background-color: transparent;
     font-size: 1rem;
-    
+    font-weight: 200;
+
     .nav-logo {
         @extend .img-responsive;
         max-height: $navbar-height - $navbar-padding-vertical * 2;
     }
-    
+
     .navbar-collapse {
         text-align: center;
     }
-    
+
     .navbar-nav {
         li {
             a {
                 color: #color-text;
                 &:hover {
-                    background: #fff;
+                    background: transparent;
+                    text-decoration: underline;
                 }
             }
         }
@@ -60,6 +83,9 @@ body{
     .logo{
         max-width: 600px;
     }
+    .blog-description {
+        font-weight: 200;
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -70,7 +96,7 @@ body{
     padding-bottom: 1rem;
     font-size: 0.9rem;
     text-align: center;
-    
+
     .footer-logo {
         @extend .img-responsive;
     }
@@ -87,22 +113,26 @@ body{
 
     .list-item {
         position: relative;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         border-bottom: 1px solid $color-border;
-        
+
         .first-image {
             @extend .img-responsive;
             margin-bottom: 2rem;
         }
-        
+
         .post-title {
             margin-top: 0;
+        }
+
+        .post-image {
+            margin-bottom: 1rem;
         }
         .post-meta {
             padding-bottom: 1rem;
             font-size: 0.9rem;
-            font-style: italic;
-            
+            font-weight: 200;
+
             .list-author{
                 a {
                     color: $color-text;
@@ -113,62 +143,17 @@ body{
 
 }
 
-
-.featured-posts {
-    border-bottom: 1px solid $color-border;
-    padding-bottom: 1rem;
-    
-    a {
-            color: white;
-    }
-    
-    .featured-post {
-        @include aspect-ratio(16,9);
-        background-size: cover;
-        background-position: center;
-        margin-top: 1rem;
-        font-size: 1rem;
-        .content{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            
-            .title {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                text-align: left;
-                padding: 0.5rem;
-                margin: 0.5rem;
-                background: rgba(0,0,0, 0.8);
-            }
-            
-            &:hover {
-                text-decoration: underline;
-            }
-            .favorite {
-                position: absolute;
-                top : 1rem;
-                left: 1rem;
-                color: #333;
-            }
-        }
-    }
-}
-
 // -----------------------------------------------------------------------------
 // --- Posts ---
 // -----------------------------------------------------------------------------
 .post-header-image{
     background-position: center;
     background-size: cover;
-    
+
     @media screen and (min-width: $screen-desktop) {
         height: 30rem;
     }
-    
+
     @media screen and (max-width: $screen-desktop) {
         height: 15rem;
     }
@@ -177,31 +162,31 @@ body{
     .post-title {
         font-size: 1.5rem;
         font-weight: bold;
-        
+
         a {
-            color: $color-text;     
+            color: $color-text;
         }
     }
-    
+
     .page-header {
         border: none;
         margin-bottom: 2rem;
         padding-bottom: 0;
     }
-    
+
     .post-top-meta {
         @extend .text-muted;
         margin-top: 0.8rem;
         margin-bottom: 0.8rem;
-        font-size: 1rem;
-        font-style: italic;
-        
+        font-size: 0.9rem;
+        font-weight: 200;
+
         .author {
             a {
                 color: $color-text;
             }
         }
-        
+
         .post-share{
             text-align: right;
             ul {
@@ -209,27 +194,35 @@ body{
                 li {
                     display: inline;
                     margin-left: 0.5rem;
+
+                    a {
+                        color: $color-text;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
                 }
             }
         }
     }
-    
+
     .post-content {
         img {
             @extend .img-responsive;
         }
     }
-    
-    
+
+
     .post-footer {
         margin-top: 2rem;
-        
+        font-weight: 200;
         .post-meta {
-            
+
             .post-tags {
                 font-size: 0.9rem;
-                padding-bottom: 2rem;
-                border-bottom: 1px solid $color-border;
+                padding-bottom: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid $color-border;
                 a {
                     //border: 1px $color-border solid;
                     padding: 0.5rem;
@@ -246,10 +239,24 @@ body{
 // --- Author Page
 // -----------------------------------------------------------------------------
 .author-card {
-    width: 100%;
-    max-width: 600px;
+    @extend .well;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     .author-image {
         @extend .img-responsive;
         @extend .img-circle;
+        margin-bottom: 0.5rem;
+    }
+    .author-name {
+        text-align: center;
+    }
+
+    .author-bio {
+        margin-bottom: 0.5rem;
+    }
+
+    .author-links {
+        font-size: 0.8rem;
     }
 }

@@ -1,12 +1,23 @@
 {{#author}}
 <section class="author-card">
     <div class="row">
-        <div class="col-sm-4">
-            <img class="author-image" src="{{image}}">
+        <div class="col-sm-3">
+            <img class="author-image center-block" src="{{image}}">
+            <div class="author-name"><a href="{{url}}">{{name}}</a></div>
         </div>
-        <div class="col-sm-8">
-            <h4><a href="{{url}}">{{name}}</a></h4>
+        <div class="col-sm-9">
             <p class="author-bio">{{bio}}</p>
+            <div class="author-links">
+                {{#if twitter}}
+                <i class="fa fa-twitter" aria-hidden="true"></i> <a href="{{twitter_url}}">{{twitter}}</a> &nbsp;
+                {{/if}}
+                {{#if facebook}}
+                <a href="{{facebook_url}}"><i class="fa fa-facebook" aria-hidden="true"></i> {{facebook}}</a>
+                {{/if}}
+                {{#if website}}
+                <i class="fa fa-link" aria-hidden="true"></i> <a href="{{website}}">{{website}}</a>
+                {{/if}}
+            </div>
         </div>
     </div>
 </section>
