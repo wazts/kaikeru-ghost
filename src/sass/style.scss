@@ -1,0 +1,255 @@
+@import "bootstrap";
+@import "./variables";
+@import "./mixins";
+@import url('https://fonts.googleapis.com/css?family=Catamaran:200,400,600');
+
+
+// -----------------------------------------------------------------------------
+// --- Tags ---
+// -----------------------------------------------------------------------------
+html{
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 1.1rem;
+    font-family: 'Catamaran', sans-serif;
+    color: $color-text;
+}
+
+// -----------------------------------------------------------------------------
+// --- Navigation ---
+// -----------------------------------------------------------------------------
+.navbar-kaikeru {
+    @extend .navbar-default;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: 1rem;
+    
+    .nav-logo {
+        @extend .img-responsive;
+        max-height: $navbar-height - $navbar-padding-vertical * 2;
+    }
+    
+    .navbar-collapse {
+        text-align: center;
+    }
+    
+    .navbar-nav {
+        li {
+            a {
+                color: #color-text;
+                &:hover {
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
+
+.home-header {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @extend .img-responsive;
+    .logo{
+        max-width: 600px;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// --- Footer ---
+// -----------------------------------------------------------------------------
+.site-footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    
+    .footer-logo {
+        @extend .img-responsive;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// --- Listing
+// -----------------------------------------------------------------------------
+.article-container {
+    margin-top: 2rem;
+    .list-image {
+        @include img-responsive;
+    }
+
+    .list-item {
+        position: relative;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $color-border;
+        
+        .first-image {
+            @extend .img-responsive;
+            margin-bottom: 2rem;
+        }
+        
+        .post-title {
+            margin-top: 0;
+        }
+        .post-meta {
+            padding-bottom: 1rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            
+            .list-author{
+                a {
+                    color: $color-text;
+                }
+            }
+        }
+    }
+
+}
+
+
+.featured-posts {
+    border-bottom: 1px solid $color-border;
+    padding-bottom: 1rem;
+    
+    a {
+            color: white;
+    }
+    
+    .featured-post {
+        @include aspect-ratio(16,9);
+        background-size: cover;
+        background-position: center;
+        margin-top: 1rem;
+        font-size: 1rem;
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            
+            .title {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                text-align: left;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                background: rgba(0,0,0, 0.8);
+            }
+            
+            &:hover {
+                text-decoration: underline;
+            }
+            .favorite {
+                position: absolute;
+                top : 1rem;
+                left: 1rem;
+                color: #333;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// --- Posts ---
+// -----------------------------------------------------------------------------
+.post-header-image{
+    background-position: center;
+    background-size: cover;
+    
+    @media screen and (min-width: $screen-desktop) {
+        height: 30rem;
+    }
+    
+    @media screen and (max-width: $screen-desktop) {
+        height: 15rem;
+    }
+}
+.post {
+    .post-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        
+        a {
+            color: $color-text;     
+        }
+    }
+    
+    .page-header {
+        border: none;
+        margin-bottom: 2rem;
+        padding-bottom: 0;
+    }
+    
+    .post-top-meta {
+        @extend .text-muted;
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        font-style: italic;
+        
+        .author {
+            a {
+                color: $color-text;
+            }
+        }
+        
+        .post-share{
+            text-align: right;
+            ul {
+                list-style-type: none;
+                li {
+                    display: inline;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+    
+    .post-content {
+        img {
+            @extend .img-responsive;
+        }
+    }
+    
+    
+    .post-footer {
+        margin-top: 2rem;
+        
+        .post-meta {
+            
+            .post-tags {
+                font-size: 0.9rem;
+                padding-bottom: 2rem;
+                border-bottom: 1px solid $color-border;
+                a {
+                    //border: 1px $color-border solid;
+                    padding: 0.5rem;
+                    margin-right: 0.5rem;
+                    margin-top: 1rem;
+                    color: $color-text-light;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// --- Author Page
+// -----------------------------------------------------------------------------
+.author-card {
+    width: 100%;
+    max-width: 600px;
+    .author-image {
+        @extend .img-responsive;
+        @extend .img-circle;
+    }
+}

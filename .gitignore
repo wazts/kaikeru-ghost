@@ -1,0 +1,6 @@
+# NPM
+node_modules/
+
+# We don't really need these outside of building the app.js.
+src/js/bootstrap.js
+src/js/jquery.js

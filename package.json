@@ -1,0 +1,34 @@
+{
+  "name": "Kaikeru",
+  "version": "1.0.0",
+  "description": "A minimlist Ghost theme for Kaikeru Talks",
+  "scripts": {
+    "postinstall": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://wazts@github.com/wazts/kaikeru-ghost.git"
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "go",
+    "team",
+    "win"
+  ],
+  "author": "Kyle Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wazts/kaikeru-ghost/issues"
+  },
+  "homepage": "https://github.com/wazts/kaikeru-ghost#readme",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "jquery": "^3.1.0"
+  }
+}
