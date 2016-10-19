@@ -79,9 +79,9 @@ h1 {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    @extend .img-responsive;
+    max-width: 600px;
     .logo{
-        max-width: 600px;
+        @extend .img-responsive;
     }
     .blog-description {
         font-weight: 200;

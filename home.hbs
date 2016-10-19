@@ -21,14 +21,10 @@ the {body} of the default.hbs template, which contains our header/footer. }}
 </header>
 <main class="content" role="main">
     <div class="container-sm">
-        <div class="row">
-            <div class="col-md-12 article-container">
-                <div class="article-list">
-                    {{#foreach posts}}
-                        {{> post-list}}
-                    {{/foreach}}
-                </div>
-            </div>
+        <div class="article-list">
+            {{#foreach posts}}
+            {{> post-list}}
+            {{/foreach}}
         </div>
         {{pagination}}
     </div>
